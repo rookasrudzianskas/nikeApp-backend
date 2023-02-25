@@ -6,7 +6,7 @@ const getAllProducts = async () => {
 }
 
 const getProduct = async (id) => {
-  return await db.products.findOne({ _id: new ObjectId(id) });
+  return await db.products.findOne({ _id: ObjectId(id) });
 }
 
 module.exports = {
