@@ -8,3 +8,5 @@ router.get('/:reference', async (req, res) => {
 router.post('/', (req, res) => {
   res.send('Creating an order');
 });
+
+module.exports = router;
