@@ -10,9 +10,10 @@ router.get('/', async (req, res) => {
 router.get('/:productId', async (req, res) => {
   try {
     const product = await getProduct(req.params.productId);
+    if(!product) return res.status(404).send({ status: "FAILED", error: "Product not found" });
     res.send({ status: "OK", data: product });
   } catch (error) {
-    res.status(404).send({ status: "FAILED", data: "Product not found" });
+    res.status(401).send({ status: "FAILED", error: error.message });
   }
 });
 
